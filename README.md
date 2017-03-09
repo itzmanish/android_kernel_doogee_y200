@@ -40,5 +40,8 @@ Smart Surf 4G 3.10.101+ Linux kernel
 
 8) Прошить.
 
+Special credit goes to:
+assusdan
+
 
 
