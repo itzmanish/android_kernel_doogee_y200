@@ -1,20 +1,19 @@
-Smart Surf 4G 3.10.101+ Linux kernel
+Doogee Y200 3.10.101+ Linux kernel
 ====================================
-####Работает:
+####Not working:
+Fingerprint
+Camera focus
+Flashlight
+Front camera rotated 180 degree
 
-Полностью: экран, тачскрин, кнопка выключения, сеть, звук через динамики
 
-Частично: кнопки громкости перепутаны местами
+####For the Assembly:
 
-Не работает: всё остальное
-
-####Для сборки:
-
-1) Установить архитектуру arm (32bit)
+1) set arch to arm (32bit) or arm64
 
 `export ARCH=arm`
 
-2) Установить тулчейн и путь к нему
+2) set toolchain and path
 
 `pushd ..`
 
@@ -24,21 +23,19 @@ Smart Surf 4G 3.10.101+ Linux kernel
 
 `popd`
 
-3) Выбрать нужный конфиг
+3) select the desired configuration
 
 `make Sprint4g_defconfig`
 
-4) Собрать
+4) build
 
 `make -j4`
 
-5) Взять получившийся zImage-dts из папки arch/arm/boot
+5) Take the resulting zImage dts in the folder arch/arm/boot
 
-6) Упаковать его с помощью Carliv Image Kitchen в понравившийся 32битный boot.img (я пакую в SlimLP от МТС Smart Sprint 4G)
+6) Pack it using Carliv Image Kitchen 
 
-6) В system порта поменять модем на МТСовый.
-
-8) Прошить.
+7) Flash
 
 Special credit goes to:
 assusdan
