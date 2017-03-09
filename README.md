@@ -1,10 +1,10 @@
 Doogee Y200 3.10.101+ Linux kernel
 ====================================
 ####Not working:
-Fingerprint
-Camera focus
-Flashlight
-Front camera rotated 180 degree
+- Fingerprint
+- Camera focus
+- Flashlight
+- Front camera rotated 180 degree
 
 
 ####For the Assembly:
