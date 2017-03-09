@@ -395,26 +395,10 @@ static void set_mirror_flip(kal_uint8 image_mirror)
        *
        ********************************************************/
 
-    switch (image_mirror) {
-        case IMAGE_NORMAL:
-            write_cmos_sensor(0x3820,((read_cmos_sensor(0x3820) & 0xF9) | 0x00));
-            write_cmos_sensor(0x3821,((read_cmos_sensor(0x3821) & 0xF9) | 0x06));
-            break;
-        case IMAGE_H_MIRROR:
-            write_cmos_sensor(0x3820,((read_cmos_sensor(0x3820) & 0xF9) | 0x00));
-            write_cmos_sensor(0x3821,((read_cmos_sensor(0x3821) & 0xF9) | 0x00));
-            break;
-        case IMAGE_V_MIRROR:
-            write_cmos_sensor(0x3820,((read_cmos_sensor(0x3820) & 0xF9) | 0x06));
-            write_cmos_sensor(0x3821,((read_cmos_sensor(0x3821) & 0xF9) | 0x06));
-            break;
-        case IMAGE_HV_MIRROR:
-            write_cmos_sensor(0x3820,((read_cmos_sensor(0x3820) & 0xF9) | 0x06));
-            write_cmos_sensor(0x3821,((read_cmos_sensor(0x3821) & 0xF9) | 0x00));
-            break;
-        default:
-            LOG_INF("Error image_mirror setting\n");
-    }
+    write_cmos_sensor(0x3820,(read_cmos_sensor(0x3820) | 0x06));
+    write_cmos_sensor(0x3821,(read_cmos_sensor(0x3821) & 0xF9));
+          
+    
 
 }
 #endif
@@ -1488,9 +1472,11 @@ static kal_uint32 control(MSDK_SCENARIO_ID_ENUM scenario_id, MSDK_SENSOR_EXPOSUR
             break;
         case MSDK_SCENARIO_ID_HIGH_SPEED_VIDEO:
             hs_video(image_window, sensor_config_data);
+	    set_mirror_flip(3);
             break;
         case MSDK_SCENARIO_ID_SLIM_VIDEO:
             slim_video(image_window, sensor_config_data);
+	    set_mirror_flip(3);
             break;
         default:
             LOG_INF("Error ScenarioId setting");
