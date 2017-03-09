@@ -475,11 +475,14 @@ static void sensor_init(void)
     */
 
     //@@ global setting
+    
+    write_cmos_sensor(0x100, 0);
+    write_cmos_sensor(0x103, 1);	
+    
+    mDELAY(5);
+	
     write_cmos_sensor(0x3001, 0);
     write_cmos_sensor(0x3002, 0);
-
-    mDELAY(5);
-
     write_cmos_sensor(0x3011, 2);
     write_cmos_sensor(0x3018, 76);
     write_cmos_sensor(0x3022, 0);
