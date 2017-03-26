@@ -13,13 +13,9 @@ Doogee Y200 3.10.101+ Linux kernel
 
 2) set toolchain and path
 
-`pushd ..`
-
 `git clone https://github.com/assusdan/arm-cortex-linux-gnueabi-linaro_5.2`
 
 `export CROSS_COMPILE=$PWD/arm-cortex-linux-gnueabi-linaro_5.2/bin/arm-cortex-linux-gnueabi-`
-
-`popd`
 
 3) select the desired configuration
 
